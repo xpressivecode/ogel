@@ -158,3 +158,41 @@ Models can also utilize functions. For instance, in your copyright notice you mi
 Notice that you still reference it using the same syntax. 
 
 Model methods do not currently support arguments. 
+
+Lorem ipsum generation
+----------------------
+
+This shortcut allows you to quickly inject lorem ipsum placeholder data. It uses <a href="https://github.com/shyiko/lorem" target="_blank" title="shyiko lorem">lorem by shyiko</a> and allows for any of the classnames that he supports. 
+
+A few exmaples
+
+`{{ipsum:w10}}` would generate 10 words of lorem ipsum
+`{{ipsum:p4}}` would generate 4 paragraphs of lorem ipsum
+`{{ipsum:s8}}` would generate 8 sentences of lorem ipsum
+
+Placeholder.it shortcut
+-----------------------
+
+This shortcut allows you to quickly specify placeholder.it images. There are to styles that you can leverage. 
+
+`{{img:200x200}}` where the 200x200 specifies the dimensions being passed to placeholder.it. Because of this, any of their syntax is valid here as well. 
+
+or
+
+`{{img:200x200:class="pull-left" alt="no image"}}` here you can see that we're also including additional attributes. 
+
+Repeatable blocks
+-----------------
+
+This shortcut allows you to quickly repeat content with a repeatable block. An example could be a list or table of data. This lets you quickly set how many items or rows etc should show up. 
+
+```html
+<ul>
+{{repeat:10}} <!-- 10 could be any number -->
+  <li>some data here</li>
+{{/repeat}}
+</ul>
+```
+
+
+

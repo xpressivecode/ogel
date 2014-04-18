@@ -16,6 +16,7 @@ TODO
 2. The system currently works inwards. Some efficiencies could be gained by working outwards
 3. Tests
 4. General regex cleanup. I'm terrible with regex and I'm sure there could be some fixes applied
+5. It would be nice to randomize the lorem ipsum that is generated
 
 Features
 ========

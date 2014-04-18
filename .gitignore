@@ -18,8 +18,18 @@ coverage
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
+release
 
 # Dependency directory
 # Deployed apps should consider commenting this line out:
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
+
+# in case we forget to clean it up
+tmp
+
+# bower
+bower_components
+
+# sass
+.sass-cache

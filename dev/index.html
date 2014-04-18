@@ -1,0 +1,37 @@
+{{model}}
+{
+	title: 'Home',
+	width: 10
+}
+{{/model}}
+{{layout}}		
+	{{layout:header}}
+		<section>		
+			{{page-intro}}
+				<h2>Welcome to Sitecore Online</h2>
+				<p>
+					Whether you're new to Sitecore or looking to master particular features,
+					Sitecore Online has a library of helpful videos to help you on your way
+				</p>
+			{{/page-intro}}
+		</section>
+	{{/layout:header}}
+	{{layout:aside}}
+		{{test/aside}}
+	{{/layout:aside}}
+	<ul class="list-unstyled">
+		{{repeat:5}}
+			<li class="clearfix">
+				<a href="" title="">
+					{{img:200x100:class="pull-left" alt="video title"}}
+					{{img:50x50}}
+				</a>
+				<h3>
+					<a href="" title="">Video Heading</a>
+				</h3>
+				<small>18 April 2014</small>
+				{{ipsum:p1}}
+			</li>
+		{{/repeat}}
+	</ul>
+{{/layout}}

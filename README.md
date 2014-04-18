@@ -167,8 +167,11 @@ This shortcut allows you to quickly inject lorem ipsum placeholder data. It uses
 A few exmaples
 
 `{{ipsum:w10}}` would generate 10 words of lorem ipsum
+
 `{{ipsum:p4}}` would generate 4 paragraphs of lorem ipsum
+
 `{{ipsum:s8}}` would generate 8 sentences of lorem ipsum
+
 
 Placeholder.it shortcut
 -----------------------

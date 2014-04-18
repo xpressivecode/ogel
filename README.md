@@ -94,3 +94,67 @@ And in your page that references the layout template
 {{/layout}}
 ```
 
+Basic Model Support
+-------------------
+
+In the previous example you saw that we had a `col-md-10` in our layout template. The `aside` yield block is also optional, so ideally, you would want the `col-md-10` to change based on whether you used the aside block or not.
+
+One way that you could achieve this is through exposing model properties. 
+
+Some things to keep in mind.
+
+1. Models can support properties
+2. Models can support methods
+3. Models compound as templates are used. Meaning that they stack properties. If you had 4 templates, all adding different properties to the model, all of those properties would be made available. 
+
+In the situation described above, we could handle it via:
+
+```html
+<!-- layout.html (a template)-->
+{{model}}
+  {
+    width: 12
+  }
+{{/model}}
+<body>
+  <div class="row">
+    {{yield:aside}} <!-- define an optional yield block -->
+    <div class="col-md-{{model.width}}"> <!-- here we use the model property instead -->
+      {{yield}} <!-- main content of callee goes here -->
+    </div>
+  </div>
+</body>
+
+<!-- index.html (a page using the layout) -->
+{{model}}
+  {
+    width: 10 <!-- here we override the default width and set it to 10, as we're using 2 columns for our aside -->
+  }
+{{/model}}
+{{layout}}
+  {{layout:aside}}
+    <div class="col-md-2">
+      side nav could go here
+    </div>
+  {{/layout:aside}}
+  main content goes here and ends up in the {{yield}} block
+{{/layout}}
+```
+
+Models can also utilize functions. For instance, in your copyright notice you might want to use the current year. 
+
+```html
+{{model}}
+  {
+    year: function(){ return new Date().getFullYear(); }
+  }
+{{/model}}
+
+<!-- footer.html (a template) -->
+<p class="copyright">&copy; {{model.year}} company inc.</p>
+
+```
+
+Notice that you still reference it using the same syntax. 
+
+Model methods do not currently support arguments. 

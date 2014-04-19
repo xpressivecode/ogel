@@ -54,7 +54,7 @@ module.exports = function (grunt) {
         copy: {
             bootstrap: {
                 files: [
-                    { expand: true, src: ['bower_components/bootstrap-sass-official/vendor/assets/stylesheets/**', '!bower_components/bootstrap-sass-official/vendor/assets/stylesheets/**/bootstrap.scss'], dest: 'tmp/scss/', flatten: true, filter: 'isFile' }
+                    { expand: true, src: ['bower_components/bootstrap-sass-official/vendor/assets/stylesheets/**/*.scss', '!bower_components/bootstrap-sass-official/vendor/assets/stylesheets/**/bootstrap.scss'], dest: 'tmp/scss/', flatten: true, filter: 'isFile' }
                 ]
             },
 
@@ -158,7 +158,7 @@ module.exports = function (grunt) {
     // 8. merge our js files together (from min folder) - jquery first and place the output into our release folder
     // 9. minify our css file and place the output into our release folder
     // 10. finally clean up the temp folder again as it's no longer needed
-    grunt.registerTask('base', ['clean:all', 'templates', 'copy', 'concat:bootstrap', 'sass', 'uglify', 'concat:css', 'concat:js', 'cssmin']);
+    grunt.registerTask('base', ['clean:all', 'templates', 'copy', 'concat:bootstrap', 'uglify', 'concat:css', 'concat:js', 'cssmin']);
 
     // high level order of operations for infrastructure stuff
     grunt.registerTask('default', ['base', 'connect', 'open', 'watch']);

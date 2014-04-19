@@ -4,6 +4,17 @@ var chalk =  require('chalk');
 var lorem = require('lorem');
 
 module.exports = function (grunt) {
+    /**
+     * Escapes characters in the string that are not safe to use in a RegExp.
+     * @param {*} s The string to escape. If not a string, it will be casted
+     *     to one.
+     * @return {string} A RegExp safe, escaped copy of {@code s}.
+     */
+    function escape(s) {
+        return String(s).replace(/([-()\[\]{}+?*.$\^|,:#<!\\])/g, '\\$1').
+            replace(/\x08/g, '\\x08');
+    };
+
     grunt.registerMultiTask('templates', 'Inject templates into your flat html files', function(){
         var options = this.options({
             src: '',
@@ -45,7 +56,7 @@ module.exports = function (grunt) {
 
             grunt.log.subhead('parsing blocks');
             html = parseBlock(html, {
-                matchExpression: /{{(?!model)(.*?)}}((.|\r\n)*?){{\/\1}}/gmi,
+                matchExpression: /{{(?!model)(.*?)}}((.|\r*\n)*?){{\/\1}}/gmi,
                 isBlock: true
             }, model);
 
@@ -93,18 +104,22 @@ module.exports = function (grunt) {
                     grunt.log.writeln('\t\t* template ' + chalk.cyan(name) + ' not found. Using an empty string as a replacement');
                 }else{
                     if(options.isBlock){
+                        grunt.log.ok('1');
                         if(!options.yield)options.yield = 'yield';
                         content = templates[name].replace('{{' + options.yield + '}}', innerContent);
-
+grunt.log.ok('1.1');
                         content = parseYields(content, {
                             name: name
                         });
+                        grunt.log.ok('1.2');
                     }else{
+                        grunt.log.ok('2');
                         content = templates[name];
                     }
                 }
 
-                html = html.replace(new RegExp(search, 'g'), content);
+                grunt.log.writeln('here');
+                html = html.replace(new RegExp(escape(search), 'g'), content);
                 grunt.log.subhead('parsing repeat blocks');
                 html = parseRepeatBlock(html);
                 
@@ -117,7 +132,7 @@ module.exports = function (grunt) {
         }
 
         function parseRepeatBlock(html){
-            var matchExpression = /{{repeat:([0-9]*?)}}((.|\r\n)*?){{\/repeat}}/gmi;
+            var matchExpression = /{{repeat:([0-9]*?)}}((.|\r*\n)*?){{\/repeat}}/gmi;
             var matches;
 
             while((matches = matchExpression.exec(html)) != null){
@@ -131,7 +146,7 @@ module.exports = function (grunt) {
                     tmp += innerContent;
                 }
 
-                html = html.replace(new RegExp(search, 'g'), tmp);
+                html = html.replace(new RegExp(escape(search), 'g'), tmp);
             }
             return  html;
         }
@@ -193,7 +208,7 @@ module.exports = function (grunt) {
                 var search = matches[0];
                 var name = matches[1];
 
-                var block = extractBlock(html, '{{' + options.name + ':' + name + '}}((.|\r\n)*?){{/' + options.name + ':' + name + '}}');
+                var block = extractBlock(html, '{{' + options.name + ':' + name + '}}((.|\r*\n)*?){{/' + options.name + ':' + name + '}}');
                 if(block != null){
                     var innerContent = block[1];
                     html = html.replace(search, innerContent);
@@ -211,7 +226,7 @@ module.exports = function (grunt) {
         }
          
         function parseModel(html, model){
-            var matches = extractBlock(html, '{{model}}((.|\r\n)*?){{/model}}');
+            var matches = extractBlock(html, '{{model}}((.|\r*\n)*?){{/model}}');
             if(matches != null){
                 var search = matches[0];
                 var modelstr = matches[1];

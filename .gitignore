@@ -33,3 +33,5 @@ bower_components
 
 # sass
 .sass-cache
+
+.idea

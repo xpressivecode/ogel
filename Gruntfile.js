@@ -10,7 +10,7 @@ module.exports = function (grunt) {
 
 
     grunt.initConfig({
-        templates: {
+        ogel: {
             main: {
                 options: {
                     src: 'dev',
@@ -158,7 +158,7 @@ module.exports = function (grunt) {
     // 8. merge our js files together (from min folder) - jquery first and place the output into our release folder
     // 9. minify our css file and place the output into our release folder
     // 10. finally clean up the temp folder again as it's no longer needed
-    grunt.registerTask('base', ['clean:all', 'templates', 'copy', 'concat:bootstrap', 'uglify', 'concat:css', 'concat:js', 'cssmin']);
+    grunt.registerTask('base', ['clean:all', 'ogel', 'copy', 'concat:bootstrap', 'uglify', 'concat:css', 'concat:js', 'cssmin']);
 
     // high level order of operations for infrastructure stuff
     grunt.registerTask('default', ['base', 'connect', 'open', 'watch']);

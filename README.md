@@ -19,7 +19,7 @@ the final flat html output that you would get sign off on etc.
 
 In no particular order
 
-~~1. Fix \r\n vs. \n differences between systems in regex. \s\S produced odd results~~
+1. ~~Fix \r\n vs. \n differences between systems in regex. \s\S produced odd results~~
 2. The system currently works inwards. Some efficiencies could be gained by working outwards
 3. Tests
 4. General regex cleanup. I'm terrible with regex and I'm sure there could be some fixes applied

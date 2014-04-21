@@ -1,10 +1,10 @@
 {
   "name": "Ogel",
   "version": "0.0.1",
-  "description": "Templating system for rapid prototyping of flat html builds",
+  "description": "Templating system for the rapid prototyping of flat html builds",
   "main": "lib/ogel.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -R list"
   },
   "author": "Mike Fitzgerald",
   "license": "BSD-2-Clause",

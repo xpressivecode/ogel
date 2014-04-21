@@ -1,9 +1,9 @@
-ogel
+Ogel
 ====
 
-Templating system for rapid prototyping of flat html builds: runs as a grunt task
+Templating system for the rapid prototyping of flat html builds.
 
-This is meant to help facilitate the creation of flat builds. It's currently run as a grunt task. It pieces together fragments of a site build and produces
+This is meant to help facilitate the creation of flat builds. It pieces together fragments of a site build and produces
 the final flat html output that you would get sign off on etc.
 
 ## Installation
@@ -24,7 +24,7 @@ In no particular order
 3. Tests
 4. General regex cleanup. I'm terrible with regex and I'm sure there could be some fixes applied
 5. It would be nice to randomize the lorem ipsum that is generated
-6. Turn this into a npm module + grunt task (two separate projects where the task referneces the npm module)
+6. Turn this into a npm module + grunt task (two separate projects where the task references the npm module)
 
 ## Features
 

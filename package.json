@@ -1,12 +1,12 @@
 {
-  "name": "sitecore-online",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "Ogel",
+  "version": "0.0.1",
+  "description": "Templating system for rapid prototyping of flat html builds",
+  "main": "lib/ogel.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Mike Fitzgerald",
   "license": "BSD-2-Clause",
   "devDependencies": {
     "grunt": "~0.4.4",

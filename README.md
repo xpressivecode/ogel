@@ -8,12 +8,31 @@ the final flat html output that you would get sign off on etc.
 
 ## Installation
 
-1. clone
-2. npm install
-3. bower install
-4. grunt
+`npm install xp-ogel`
 
-*this will change once everything is divided into it's proper responsibility*
+## Usage
+
+```js
+var ogel = require('xp-ogel');
+
+var options = {
+  src: 'src',
+  dest: 'build',
+  templateDir: 'src/templates'
+};
+
+// preview mode - will trigger the function callback for each file found and parsed
+// returns an object with the filename and compiled html
+ogel.preview(options, function(args){
+   console.log('new file parsed: ' + args.file);
+   console.log(args.html);
+});
+
+//build mode - returns when completed and generates the new flat build for you based on the 'dest' directory
+
+ogel.build(options);
+
+```
 
 ## TODO
 
@@ -21,10 +40,10 @@ In no particular order
 
 1. ~~Fix \r\n vs. \n differences between systems in regex. \s\S produced odd results~~
 2. The system currently works inwards. Some efficiencies could be gained by working outwards
-3. Tests
+3. Tests (started)
 4. General regex cleanup. I'm terrible with regex and I'm sure there could be some fixes applied
 5. It would be nice to randomize the lorem ipsum that is generated
-6. Turn this into a npm module + grunt task (two separate projects where the task references the npm module)
+6. ~~Turn this into a npm module + grunt task (two separate projects where the task references the npm module)~~
 
 ## Features
 

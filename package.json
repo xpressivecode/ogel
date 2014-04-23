@@ -1,6 +1,6 @@
 {
   "name": "xp-ogel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Templating system for the rapid prototyping of flat html builds",
   "main": "./lib/ogel.js",
   "repository": {

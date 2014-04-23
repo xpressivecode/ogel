@@ -1,5 +1,5 @@
 {
-  "name": "Ogel",
+  "name": "ogel",
   "version": "0.0.1",
   "description": "Templating system for the rapid prototyping of flat html builds",
   "main": "lib/ogel.js",

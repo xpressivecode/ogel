@@ -1,14 +1,21 @@
 {
-  "name": "ogel",
-  "version": "0.0.1",
+  "name": "xp-ogel",
+  "version": "0.1.0",
   "description": "Templating system for the rapid prototyping of flat html builds",
-  "main": "lib/ogel.js",
+  "main": "./lib/ogel.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XpressiveCode/ogel.git"
+  },
   "scripts": {
     "test": "mocha -R list"
   },
   "author": "Mike Fitzgerald",
-  "license": "BSD-2-Clause",
-  "devDependencies": {
+  "license": "MIT",
+  "keywords": [
+    "html", "template", "prototype", "build"
+  ],
+  "dependencies": {
     "grunt": "~0.4.4",
     "lorem": "~0.4.0",
     "underscore": "~1.6.0"
